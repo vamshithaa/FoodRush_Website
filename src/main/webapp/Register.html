@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodRush Registration</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="images/food-video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="overlay"></div>
+
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Left Side -->
+    <div class="left-section">
+
+      <div class="logo-box">
+        <img src="images/foodrush-logo1.png" alt="FoodRush Logo">
+      </div>
+
+      <h1>
+        Good Food,<br>
+        <span>Delivered Fast</span>
+      </h1>
+
+      <p>
+        Order your favorite meals with lightning-fast delivery
+        from FoodRush.
+      </p>
+
+    </div>
+
+    <!-- Right Side -->
+    <div class="form-container">
+
+      <h2>Create Account</h2>
+      <p class="subtitle">
+        Join <span>FoodRush</span> and start ordering!
+      </p>
+      
+   <p id="registerMessage"
+   style="display:none;
+          color:#ff4d4d;
+          margin-bottom:18px;
+          text-align:center;
+          font-weight:600;
+          font-size:15px;">
+    No account found. Please register.
+</p>
+
+      <form action="callRegisterServlet" method="post">
+
+        <div class="input-box">
+          <i class="fa-regular fa-user"></i>
+          <input type="text" placeholder="Username" name="Username" required>
+        </div>
+
+        <div class="input-box">
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" placeholder="Email" name="Email" required>
+        </div>
+
+
+        <div class="input-box">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Password" name="Password" required>
+        </div>
+
+        <div class="input-box">
+          <i class="fa-solid fa-house"></i>
+          <input type="text" placeholder="Address" name="Address" required>
+        </div>
+        
+        
+<div class="input-box select-box" style="position: relative;">
+  <i class="fa-solid fa-user-gear"></i>
+  
+  <select name="role" required style="
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 28px;
+  ">
+    <option value="" disabled selected hidden>Select Role</option>
+    <option value="customer" style="background: #171c22; color: white;">Customer</option>
+    <option value="restuarantOwner" style="background: #171c22; color: white;">Restaurant Owner</option>
+    <option value="admin" style="background: #171c22; color: white;">Admin</option>
+  </select>
+
+  <style>
+    .input-box.select-box::after {
+      content: "\f107";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: #67d42f;
+      position: absolute;
+      right: 16px;
+      pointer-events: none;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+</div>
+        
+
+  <!-- <div class="input-box"> 
+          <i class="fa-solid fa-user-tag"></i>
+          <label>Select Role</label>
+          <select name="role" required>
+		          <option value="">Choose Role</option>
+		          <option value="customer">Customer</option>
+		          <option value="restuarantOwner">Restaurant Owner</option>
+		          <option value="admin">Admin</option>
+          </select>
+        </div>     --> 
+
+       
+        <form action="login.html">
+    <button type="submit" class="register-btn">
+        Sign Up
+    </button>
+</form>
+      <!--  <div class="divider">
+          <span>OR</span>
+        </div>
+
+        <button type="button" class="google-btn">
+          <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
+          Continue with Google
+        </button> -->
+
+      </form>
+
+      <p class="login-text">
+        Already have an account?
+        <a href="Login.html">Sign In</a>
+      </p>
+
+    </div>
+
+  </div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+if (params.get("notRegistered") === "true") {
+    const msg = document.getElementById("registerMessage");
+    msg.style.display = "block";
+
+    setTimeout(() => {
+        msg.style.display = "none";
+    }, 4000);
+}
+</script>
+
+</body>
+</html>

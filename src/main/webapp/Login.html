@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodRush Login</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+  .container{
+    flex-direction: row-reverse;
+  }
+
+  @media(max-width:1100px){
+    .container{
+      flex-direction: column;
+    }
+  }
+
+  .forgot-link{
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    margin: -8px 0 16px;
+  }
+
+  .forgot-link a{
+    color: #49c80c;
+    text-decoration: none;
+  }
+
+  .forgot-link a:hover{
+    text-decoration: underline;
+  }
+
+  .info-banner{
+    background: rgba(105,241,31,0.12);
+    color: #49c80c;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="images/food-video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Left Side -->
+    <div class="left-section">
+
+      <div class="logo-box">
+        <img src="images/foodrush-logo1.png" alt="FoodRush Logo">
+      </div>
+
+      <h1>
+        Welcome Back,<br>
+        <span>Food Lover!</span>
+      </h1>
+
+      <p>
+        Sign in to continue ordering delicious meals
+        with fast delivery from FoodRush.
+      </p>
+
+    </div>
+
+    <!-- Right Side -->
+    <div class="form-container">
+
+      <h2>Sign In</h2>
+
+      <p class="subtitle">
+        Access your <span>FoodRush</span> account
+      </p>
+
+      <div id="reset-success-banner" class="info-banner" style="display:none;">
+        <i class="fa-solid fa-circle-check"></i>
+        Your password has been reset. Please sign in with your new password.
+      </div>
+
+      <form  action="LoginServlet" method="post">
+
+        <!-- Email -->
+        <div class="input-box">
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" placeholder="Email" name="email" required>
+        </div>
+
+        <!-- Password -->
+        <div class="input-box">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Password" name="Password" required>
+        </div>
+
+        <!-- Forgot Password -->
+        <span class="forgot-link"><a href="ForgotPasswordServlet">Forgot Password?</a></span>
+
+
+        <!-- Login Button -->
+        <button type="submit" class="register-btn">
+          Sign In
+        </button>
+
+        <!-- Divider -->
+        <!--
+        <div class="divider">
+          <span>OR</span>
+        </div> -->
+
+        <!-- Google Button -->
+        <!--
+        <button type="button" class="google-btn">
+          <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
+          Continue with Google
+        </button> -->
+
+      </form>
+
+      <!-- Register Redirect -->
+      <p class="login-text">
+        Don't have an account?
+        <a href="Register.html">Sign Up</a>
+      </p>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Show the "password reset" success banner if we were redirected here
+    // from ResetPasswordServlet with ?reset=true
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("reset") === "true") {
+      document.getElementById("reset-success-banner").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

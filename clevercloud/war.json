@@ -1,0 +1,16 @@
+{
+  "build": {
+    "type": "maven",
+    "goal": "package"
+  },
+  "deploy": {
+    "container": "TOMCAT10",
+    "war": [
+      {
+        "file": "target/food-rush.war",
+        "context": "/",
+        "checkMe": "/LandingPage.html"
+      }
+    ]
+  }
+}
