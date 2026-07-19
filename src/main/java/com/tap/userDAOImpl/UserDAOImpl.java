@@ -20,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
 	public static final String DELETE_QUERY="DELETE FROM user WHERE userId=?";
 	public static final String UPDATE_QUERY="UPDATE user SET userName=?,userPassword=?,userEmail=?,userAddress=?,role=?,lastLoginDate=? WHERE userId=?";
 	public static final String SELECT_ALL_QUERY="SELECT * FROM user";
-	public static final String SELECT_USER_BY_EMAIL="SELECT * FROM User WHERE userEmail=?";
+	public static final String SELECT_USER_BY_EMAIL="SELECT * FROM user WHERE userEmail=?";
 	public static final String SET_RESET_TOKEN_QUERY = "UPDATE user SET resetToken=?, resetTokenExpiry=? WHERE userEmail=?";
 	public static final String SELECT_BY_RESET_TOKEN_QUERY = "SELECT * FROM user WHERE resetToken=?";
 	public static final String RESET_PASSWORD_QUERY = "UPDATE user SET userPassword=?, resetToken=NULL, resetTokenExpiry=NULL WHERE userId=?";
